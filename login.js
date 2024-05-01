@@ -9,40 +9,44 @@ const firebaseConfig = {
     appId: "1:734810485452:web:0c4cc229c4d6a39445c869",
     measurementId: "G-5TQGFNXH4S"
   };
-
   firebase.initializeApp(firebaseConfig);
-
-  // Reference to the Firebase Authentication
   const auth = firebase.auth();
-  const db = firebase.database();
+  const database = firebase.database();
   
-  // Login form submission
-  document.getElementById("loginForm").addEventListener("submit", async (event) => {
-      event.preventDefault(); // Prevent form submission
+  // Handle form submission
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
   
-      // Get user input values
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const uniqueKey = document.getElementById('uniqueKey').value;
   
-      try {
-          // Authenticate user with email and password
-          const userCredential = await auth.signInWithEmailAndPassword(email, password);
-          const user = userCredential.user;
-          console.log("User logged in:", user);
-  
-          // Check if the user exists in the police_stations table
-          const snapshot = await db.ref("police_station").orderByChild("email").equalTo(email).once("value");
-          if (snapshot.exists()) {
-              // User exists in the police_stations table
-              window.location.href = "/main.html"; // Redirect user to main.html
-          } else {
-              // User does not exist in the police_stations table
-              alert("Login failed. Invalid email or password.");
-          }
-      } catch (error) {
-          // Authentication failed
-          console.error("Login error:", error.message);
-          // Display error message to user, e.g., show an alert
-          alert("Login failed. Invalid email or password.");
-      }
+    // Check if the uniqueKey is correct for the given email
+    database.ref('police_station').orderByChild('email').equalTo(email).once('value')
+      .then(function(snapshot) {
+        if (snapshot.exists()) {
+          snapshot.forEach(function(childSnapshot) {
+            const userData = childSnapshot.val();
+            if (userData.uniqueKey === uniqueKey) {
+              // Sign in with email and password
+              auth.signInWithEmailAndPassword(email, password)
+                .then(function(userCredential) {
+                  alert('Login successful!');
+                  // Redirect to main.html
+                  window.location.href = 'main.html';
+                })
+                .catch(function(error) {
+                  alert('Login failed: ' + error.message);
+                });
+            } else {
+              alert('Invalid uniqueKey');
+            }
+          });
+        } else {
+          alert('Email not found');
+        }
+      })
+      .catch(function(error) {
+        alert('Error checking uniqueKey: ' + error.message);
+      });
   });
