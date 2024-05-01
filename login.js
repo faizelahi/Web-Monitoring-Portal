@@ -37,7 +37,6 @@ const firebaseConfig = {
               window.location.href = "/main.html"; // Redirect user to main.html
           } else {
               // User does not exist in the police_stations table
-              console.error("User not found in police_stations table");
               alert("Login failed. Invalid email or password.");
           }
       } catch (error) {
