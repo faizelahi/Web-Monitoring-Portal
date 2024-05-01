@@ -32,7 +32,6 @@ const firebaseConfig = {
   
           // Check if the user exists in the police_stations table
           const snapshot = await db.ref("police_station").orderByChild("email").equalTo(email).once("value");
-          
           if (snapshot.exists()) {
               // User exists in the police_stations table
               window.location.href = "/main.html"; // Redirect user to main.html
