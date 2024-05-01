@@ -17,7 +17,7 @@
         
                 // Function to fetch all reports
                 function fetchAllReports() {
-                    const reportsRef = db.ref("incident_reports");
+                    const reportsRef = db.ref("incidents");
                     reportsRef.once("value", (snapshot) => {
                         const reports = snapshot.val();
                         displayReports(reports);
