@@ -54,6 +54,7 @@ document.getElementById("registerForm").addEventListener("submit", function(even
                 tehsil: tehsil,
                 station: station,
                 email: email,
+                password: password,
                 uniqueKey: uniqueKey
             });
 
