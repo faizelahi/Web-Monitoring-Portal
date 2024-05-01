@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="welcome.css">
+    <!-- Include additional libraries for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to the Police Station Portal</h1>
+        </header>
+
+        <section class="content">
+            <!-- Display unique key -->
+            <div class="alert">Your unique key is: <span id="uniqueKey"></span><br><small>Please do not disclose or forget your unique key.</small></div>
+            
+            <!-- Display crime statistics chart -->
+            <div class="chart-container">
+                <canvas id="crimeChart" width="400" height="200"></canvas>
+            </div>
+
+            <!-- Interactive elements -->
+            <div class="actions">
+                <button id="downloadButton">Download Key</button>
+            </div>
+        </section>
+
+        <!-- Login button -->
+        <div class="login">
+            <button id="loginButton">Login</button>
+            <script>
+                // Function to handle login button click
+document.getElementById("loginButton").addEventListener("click", () => {
+    // Redirect the user to the login page
+    window.location.href = "/login.html";
+});
+            </script>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+    <script src="welcome.js"></script>
+    <script src="welcome2.js"></script>
+    <script>
+      // login buton click event
+        document.getElementById("loginButton").addEventListener("click", () => {
+            // Redirect the user to the login page
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>

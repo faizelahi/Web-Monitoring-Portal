@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Crime Monitoring System</title>
+    <!-- Include CSS styles -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <h1>Police Crime Monitoring System</h1>
+        <link rel="stylesheet" href="main.css">
+        <ul>
+           
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Crime report list -->
+    <section class="crime-reports">
+        <h2>Crime Reports</h2>
+        <!-- Crime report table -->
+        <table id="reportTable">
+            <thead>
+                <tr>
+                    <th>Report ID</th>
+                    <th>Date</th>
+                    <th>District</th>
+                    <th>Location</th>
+                    <th>Police Station</th>
+                    <th>Status</th>
+                    <th>Title</th>
+                    <th>Urgent</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Crime report rows will be dynamically populated here -->
+            </tbody>
+        </table>
+    </section>
+
+
+    <!-- Include Firebase JavaScript SDK -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-firestore.js"></script>
+    <!-- Include Firebase configuration and main script -->
+    <script src="main.js"></script>
+</body>
+</html>
