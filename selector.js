@@ -3,7 +3,7 @@ const data = {
     "districts": [
         {
             "name": "Kupwara",
-            "tehsils": ["Kupwara", "Handwara", "Langate", "Tangdar", "Lolab", "Sogam"]
+            // "tehsils": ["Kupwara", "Handwara", "Langate", "Tangdar", "Lolab", "Sogam"]
         },
         {
             "name": "Pulwama",
