@@ -15,7 +15,7 @@ const data = {
         },
         {
             "name": "Srinagar",
-            "tehsils": ["Srinagar", "Badgam", "Ganderbal", "Beerwah", "Chadoora"]
+            // "tehsils": ["Srinagar", "Badgam", "Ganderbal", "Beerwah", "Chadoora"]
         }
         // Add more districts here...
     ],
