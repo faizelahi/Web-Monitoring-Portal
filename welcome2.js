@@ -19,3 +19,37 @@
 
    // Attach click event listener to the download button
    document.getElementById('downloadButton').addEventListener('click', downloadKey);
+
+
+
+    // Get the unique key element
+    const uniqueKeyElement = document.getElementById('uniqueKey');
+    // Get the download button
+    const downloadButton = document.getElementById('downloadButton');
+    // Get the copy message element
+    const copyMessageElement = document.getElementById('copyMessage');
+
+    // Add click event listener to unique key element
+    uniqueKeyElement.addEventListener('click', () => {
+        // Get the text content of the unique key element
+        const uniqueKeyText = uniqueKeyElement.innerText;
+        // Create a textarea element
+        const textarea = document.createElement('textarea');
+        // Set the value of the textarea to the unique key text
+        textarea.value = uniqueKeyText;
+        // Append the textarea to the body
+        document.body.appendChild(textarea);
+        // Select the text in the textarea
+        textarea.select();
+        // Execute the copy command
+        document.execCommand('copy');
+        // Remove the textarea
+        document.body.removeChild(textarea);
+        // Show the copy message
+        copyMessageElement.innerText = 'Unique key copied to clipboard';
+        copyMessageElement.style.display = 'block';
+        // Hide the copy message after 3 seconds
+        setTimeout(() => {
+            copyMessageElement.style.display = 'none';
+        }, 3000);
+    });

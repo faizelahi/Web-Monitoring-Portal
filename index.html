@@ -41,40 +41,4 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
   <script src="index.js"></script>
 </body>
-<script>
-  // login buton click event
-    document.getElementById("registerButton").addEventListener("click", () => {
-        // Redirect the user to the login page
-        window.location.href = "register.html";
-    });
-
-    function validateForm() {
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-      var uniqueKey = document.getElementById('uniqueKey').value;
-
-      // Email validation
-      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address');
-        return false;
-      }
-
-      // Password validation
-      if (password.length < 8) {
-        alert('Password must be at least 8 characters long');
-        return false;
-      }
-
-      // Unique key validation (you can add your own validation logic here)
-      if (uniqueKey.trim() === '') {
-        alert('Please enter a unique key');
-        return false;
-      }
-
-      // Form is valid, submit the form
-      return true;
-    }
-
-</script>
 </html>

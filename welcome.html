@@ -17,7 +17,7 @@
 
         <section class="content">
             <!-- Display unique key -->
-            <div class="alert">Your unique key is: <span id="uniqueKey"></span><br><small>Please do not disclose or forget your unique key.</small></div>
+            <div class="alert" id="uniqueKeyContainer">Your unique key is: <span id="uniqueKey"></span><br><small>Please do not disclose or forget your unique key.</small></div>
             
             <!-- Display email verification status -->
             <div class="email-verified">
@@ -39,6 +39,9 @@
         <div class="login">
             <button id="loginButton">Login</button>
         </div>
+
+        <!-- Message for key copied -->
+        <div id="copyMessage" class="copy-message"></div>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
@@ -46,11 +49,12 @@
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
     <script src="welcome.js"></script>
     <script src="welcome2.js"></script>
-    <script>
-        document.getElementById("loginButton").addEventListener("click", () => {
-            // Redirect the user to the login page
-            window.location.href = "index.html";
-        });
-    </script>
+<script>
+    //login button
+    document.getElementById("loginButton").addEventListener("click", function() {
+        window.location.href = "index.html";
+    });
+</script>
+    
 </body>
 </html>

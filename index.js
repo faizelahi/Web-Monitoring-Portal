@@ -57,5 +57,42 @@ function displayErrorMessage(element, message) {
   element.style.display = 'block'; // Show the error message
   setTimeout(function() {
       element.style.display = 'none'; // Hide the error message after 3 seconds
+        
   }, 3000);
+}
+
+
+
+ // login buton click event
+ document.getElementById("registerButton").addEventListener("click", () => {
+  // Redirect the user to the login page
+  window.location.href = "register.html";
+});
+
+function validateForm() {
+var email = document.getElementById('email').value;
+var password = document.getElementById('password').value;
+var uniqueKey = document.getElementById('uniqueKey').value;
+
+// Email validation
+var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailPattern.test(email)) {
+  alert('Please enter a valid email address');
+  return false;
+}
+
+// Password validation
+if (password.length < 8) {
+  alert('Password must be at least 8 characters long');
+  return false;
+}
+
+// Unique key validation (you can add your own validation logic here)
+if (uniqueKey.trim() === '') {
+  alert('Please enter a unique key');
+  return false;
+}
+
+// Form is valid, submit the form
+return true;
 }

@@ -54,7 +54,6 @@ document.getElementById("downloadButton").addEventListener("click", () => {
     // For example, you can prompt the user to download the unique key as a file
 });
 
-
-
 // Check the authentication state when the page loads
 checkAuthState();
+
