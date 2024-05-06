@@ -24,32 +24,32 @@ const data = {
 
     "stations": {
         "Kupwara": {
-            "Kupwara": ["Police Station Kupwara"],
+            "Kupwara": ["Police Station Kupwara","Police Station 2","police Station 3"],
             "Handwara": ["Police Station Handwara","Police Station Mawer","Police Station Zachaldara"],
-            "Langate": ["Police Station Langate","Police Station Rafiaabad"],
+            "Langate": ["Police Station Langate","Police Station Rafiaabad","Police Station 2","police Station 3"],
             "Tangdar": ["Police Station Tangdar", "Police Station Keran"],
-            "Lolab": ["Police Station Lolab"],
-            "Sogam": ["Police Station Sogam"]
+            "Lolab": ["Police Station Lolab","Police Station 2","police Station 3"],
+            "Sogam": ["Police Station Sogam","Police Station 2","police Station 3"]
         },
         "Pulwama": {
-            "Pulwama": ["Police Station Pulwama"],
-            "Awantipora": ["Police Station Awantipora"],
-            "Tral": ["Police Station Tral"],
-            "Pampore": ["Police Station Pampore"],
-            "Rajpora": ["Police Station Rajpora"]
+            "Pulwama": ["Police Station Pulwama","Police Station 2","police Station 3"],
+            "Awantipora": ["Police Station Awantipora","Police Station 2","police Station 3"],
+            "Tral": ["Police Station Tral","Police Station 2","police Station 3"],
+            "Pampore": ["Police Station Pampore","Police Station 2","police Station 3"],
+            "Rajpora": ["Police Station Rajpora","Police Station 2","police Station 3"]
         },
         "Shopian": {
-            "Shopian": ["Police Station Shopian"],
+            "Shopian": ["Police Station Shopian","Police Station 2","police Station 3"],
             "Keller": ["Police Station Keller"],
-            "Zainapora": ["Police Station Zainapora"],
-            "Wachi": ["Police Station Wachi"]
+            "Zainapora": ["Police Station Zainapora","Police Station 2","police Station 3"],
+            "Wachi": ["Police Station Wachi","Police Station 2","police Station 3"]
         },
         "Srinagar": {
-            "Srinagar": ["Police Station Srinagar"],
-            "Badgam": ["Police Station Badgam"],
-            "Ganderbal": ["Police Station Ganderbal"],
-            "Beerwah": ["Police Station Beerwah"],
-            "Chadoora": ["Police Station Chadoora"]
+            "Srinagar": ["Police Station Srinagar","Police Station 2","police Station 3"],
+            "Badgam": ["Police Station Badgam","Police Station 2","police Station 3"],
+            "Ganderbal": ["Police Station Ganderbal","Police Station 2","police Station 3"],
+            "Beerwah": ["Police Station Beerwah","Police Station 2","police Station 3"],
+            "Chadoora": ["Police Station Chadoora","Police Station 2","police Station 3"]
         }
     }
 };
