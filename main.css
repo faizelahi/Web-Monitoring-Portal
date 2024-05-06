@@ -1,90 +1,94 @@
-/* Reset default browser styles */
-body, h1, h2, h3, p, ul, li, table, th, td {
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Dark gray text color */
 }
 
 /* Navigation bar styles */
 nav {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+    background-color: #343a40; /* Dark blue-gray */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav h1 {
     margin: 0;
-    font-size: 24px;
 }
 
 nav ul {
     list-style-type: none;
-    margin-top: 10px;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
 nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f1f1f1;
 }
 
 /* Crime report section styles */
 .crime-reports {
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .crime-reports h2 {
-    margin-bottom: 20px;
+    margin-top: 0;
     font-size: 24px;
+    color: #333;
 }
 
-/* Search and filter styles */
-.search-filter {
-    margin-bottom: 20px;
-}
-
-.search-filter input[type="text"], .search-filter select {
-    padding: 8px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.search-filter button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.search-filter button:hover {
-    background-color: #0056b3;
-}
-
-/* Crime report table styles */
-#reportTable {
+/* Table styles */
+table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
-#reportTable th, #reportTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
+th, td {
+    padding: 10px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-#reportTable th {
-    background-color: #f2f2f2;
+th {
+    background-color: #f1f1f1;
+    color: #333;
 }
 
-#reportTable tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav h1 {
+        margin-bottom: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
 }

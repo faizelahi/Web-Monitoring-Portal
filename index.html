@@ -8,40 +8,73 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <h1>Login</h1>
-  <form id="loginForm">
-    <label for="email">Email:</label>
-    <input type="email" id="email" required><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" required><br>
-    <label for="uniqueKey">Unique Key:</label>
-    <input type="text" id="uniqueKey" required><br>
-    <button type="submit">Login</button>
-  </form>
-   <!-- Login button -->
-   <div class="register">
-    <button id="registerButton">Register</button>
+  <div class="container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+      </div>
+      <div class="form-group">
+        <label for="uniqueKey">Unique Key:</label>
+        <input type="text" id="uniqueKey" required>
+      </div>
+      <button type="submit">Login</button>
+      <div id="errorMessage" class="error-message"></div>
+    </form>
+    <div class="register">
+      <button id="registerButton">Register</button>
     </div>
-
+  </div>
+  </div>
   <!-- Include Firebase JavaScript SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-database.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-auth.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
   <script src="index.js"></script>
-   <!-- to add register button here and refer to register html  -->
-   <script>
-    // login buton click event
-      document.getElementById("registerButton").addEventListener("click", () => {
-          // Redirect the user to the login page
-          window.location.href = "register.html";
-      });
-  </script>
-
-
 </body>
+<script>
+  // login buton click event
+    document.getElementById("registerButton").addEventListener("click", () => {
+        // Redirect the user to the login page
+        window.location.href = "register.html";
+    });
+
+    function validateForm() {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var uniqueKey = document.getElementById('uniqueKey').value;
+
+      // Email validation
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address');
+        return false;
+      }
+
+      // Password validation
+      if (password.length < 8) {
+        alert('Password must be at least 8 characters long');
+        return false;
+      }
+
+      // Unique key validation (you can add your own validation logic here)
+      if (uniqueKey.trim() === '') {
+        alert('Please enter a unique key');
+        return false;
+      }
+
+      // Form is valid, submit the form
+      return true;
+    }
+
+</script>
 </html>

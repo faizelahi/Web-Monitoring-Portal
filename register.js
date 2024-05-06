@@ -9,83 +9,112 @@ const firebaseConfig = {
     measurementId: "G-5TQGFNXH4S"
   };
 
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
-// Reference to the authentication service
-const auth = firebase.auth();
-
-// Reference to the police stations collection
-const stationsRef = database.ref("police_station");
-
-
-
-// Function to handle form submission
-document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-
-    // Get input values
-    const district = document.getElementById("district").value;
-    const tehsil = document.getElementById("tehsil").value;
-    const station = document.getElementById("station").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-
-    // Validate password and confirm password match
-    if (password !== confirmPassword) {
-        document.getElementById("passwordError").style.display = "block";
-        return;
-    }
-
-    // Sign up with email and password
-    auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Registration successful, now store the data in the database
-            const user = userCredential.user;
-            const userId = user.uid;
-
-            // Generate unique key
-            const uniqueKey = generateUniqueKey();
-
-            // Store user data in Firebase
-            stationsRef.child(userId).set({
-                district: district,
-                tehsil: tehsil,
-                station: station,
-                email: email,
-                password: password,
-                uniqueKey: uniqueKey
-            });
-
-            // Redirect to welcome page with unique key
-            window.location.href = "./welcome.html?key=" + uniqueKey;
-        })
-        .catch((error) => {
-            // Handle registration errors
-            console.error(error.message);
-            // Display error message to user (e.g., show error div)
-            document.getElementById("errorMessage").innerText = error.message;
-        });
-});
-// Function to generate a unique key
-function generateUniqueKey() {
-  // Define the characters allowed in the key
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-
-  // Define the length range for the key (between 8 to 10 characters)
-  const minLength = 10;
-  const maxLength = 12;
-
-  // Generate a random length between minLength and maxLength
-  const length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
-
-  let uniqueKey = '';
-
-  // Generate the key by randomly selecting characters from the allowed characters
-  for (let i = 0; i < length; i++) {
-      uniqueKey += chars.charAt(Math.floor(Math.random() * chars.length));
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+  const auth = firebase.auth();
+  const stationsRef = database.ref("police_station");
+  
+  const form = document.getElementById("registerForm");
+  const errorMessage = document.getElementById("errorMessage");
+  const passwordError = document.getElementById("passwordError");
+  
+  form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+  
+      const district = document.getElementById("district").value;
+      const tehsil = document.getElementById("tehsil").value;
+      const station = document.getElementById("station").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+  
+      // Client-side form validation
+      if (!email || !password || !confirmPassword || password !== confirmPassword) {
+          errorMessage.innerText = "Please fill in all fields and make sure passwords match.";
+          return;
+      }
+  
+      try {
+          // Create user account
+          const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+          const user = userCredential.user;
+  
+          // Send email verification
+          await user.sendEmailVerification();
+          errorMessage.innerText = "Verification email sent. Please verify your email.";
+  
+          // Check if email is verified every second
+          checkEmailVerification(user, district, tehsil, station, email, password);
+      } catch (error) {
+          console.error(error.message);
+          errorMessage.innerText = error.message;
+      }
+  });
+  
+  function checkEmailVerification(user, district, tehsil, station, email, password) {
+      const intervalId = setInterval(async () => {
+          await user.reload();
+          if (user.emailVerified) {
+              clearInterval(intervalId); // Stop checking
+              const userId = user.uid;
+              const uniqueKey = generateUniqueKey();
+  
+              // Store user data in the database
+              await stationsRef.child(userId).set({
+                  district: district,
+                  tehsil: tehsil,
+                  station: station,
+                  email: email,
+                  password: hashPassword(password), // Hash password before storing
+                  uniqueKey: uniqueKey
+              });
+  
+              // Redirect to welcome page
+              window.location.href = "./welcome.html?key=" + uniqueKey;
+          }
+      }, 500); // Check every second
   }
-
-  return uniqueKey;
-}
+  
+  function generateUniqueKey() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      const minLength = 10;
+      const maxLength = 12;
+      const length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
+      let uniqueKey = '';
+      for (let i = 0; i < length; i++) {
+          uniqueKey += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return uniqueKey;
+  }
+  
+  function hashPassword(password) {
+      // Implement password hashing algorithm (e.g., bcrypt) before storing in the database
+      // For demonstration purposes, a simple hashing function is used here (not secure for production)
+      let hashedPassword = '';
+      for (let i = 0; i < password.length; i++) {
+          hashedPassword += password.charCodeAt(i).toString(16);
+      }
+      return hashedPassword;
+  }
+  
+  // Add event listener for "Send Verification Email Again" button
+  document.getElementById("sendVerificationEmail").addEventListener("click", async function() {
+      const user = auth.currentUser;
+      try {
+          await user.sendEmailVerification();
+          errorMessage.innerText = "Verification email sent. Please verify your email.";
+      } catch (error) {
+          console.error(error.message);
+          errorMessage.innerText = error.message;
+      }
+  });
+  
+  // Display "Send Verification Email Again" button and hide "Verify Email First" message
+  auth.onAuthStateChanged((user) => {
+      if (user) {
+          if (!user.emailVerified) {
+              document.getElementById("sendVerificationEmail").style.display = "block";
+              document.getElementById("verifyEmailFirst").style.display = "block";
+          }
+      }
+  });

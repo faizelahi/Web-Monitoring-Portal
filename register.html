@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Police Station Registration</title>
-    <!-- Link to your CSS file -->
     <link rel="stylesheet" href="register.css">
 </head>
 <body>
@@ -15,21 +14,18 @@
                 <label for="district">Select District:</label>
                 <select id="district">
                     <option value="">Select District</option>
-                    <!-- District options will be populated dynamically -->
                 </select>
             </div>
             <div class="form-group">
                 <label for="tehsil">Select Tehsil:</label>
                 <select id="tehsil">
                     <option value="">Select Tehsil</option>
-                    <!-- Tehsil options will be populated dynamically -->
                 </select>
             </div>
             <div class="form-group">
                 <label for="station">Select Police Station:</label>
                 <select id="station">
                     <option value="">Select Police Station</option>
-                    <!-- Police station options will be populated dynamically -->
                 </select>
             </div>
             <div class="form-group">
@@ -43,15 +39,18 @@
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" required>
+                <p id="passwordError" style="display: none; color: red;">Passwords do not match</p>
             </div>
             <div id="errorMessage" class="error-message" style="display: none;"></div>
             <button type="submit">Register</button>
         </form>
-    </div>  
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> 
-   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-database.js"></script>
+        <button id="sendVerificationEmail" style="display: none;">Send Verification Email Again</button>
+        <p id="verifyEmailFirst" style="display: none; color: red;">Please verify your email first.</p>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-database.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.0/firebase-auth.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>

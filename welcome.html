@@ -19,6 +19,11 @@
             <!-- Display unique key -->
             <div class="alert">Your unique key is: <span id="uniqueKey"></span><br><small>Please do not disclose or forget your unique key.</small></div>
             
+            <!-- Display email verification status -->
+            <div class="email-verified">
+                <span id="emailVerified"></span>
+            </div>
+
             <!-- Display crime statistics chart -->
             <div class="chart-container">
                 <canvas id="crimeChart" width="400" height="200"></canvas>
@@ -42,7 +47,6 @@
     <script src="welcome.js"></script>
     <script src="welcome2.js"></script>
     <script>
-      // login buton click event
         document.getElementById("loginButton").addEventListener("click", () => {
             // Redirect the user to the login page
             window.location.href = "index.html";
