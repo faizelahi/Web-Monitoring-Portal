@@ -19,12 +19,12 @@ const data = {
         }
         // Add more districts here...
     ],
-    // "tehsils": {
-    //     "Kupwara": ["Kupwara", "Handwara", "Langate", "Tangdar", "Lolab", "Sogam"],
-    //     "Srinagar": ["Srinagar", "Badgam", "Ganderbal", "Beerwah", "Chadoora"],
-    //     "Pulwama": ["Pulwama", "Awantipora", "Tral", "Pampore", "Rajpora"],
-    //     "Shopian": ["Shopian", "Keller", "Zainapora", "Wachi"]
-    // },
+    "tehsils": {
+        "Kupwara": ["Kupwara", "Handwara", "Langate", "Tangdar", "Lolab", "Sogam"],
+        "Srinagar": ["Srinagar", "Badgam", "Ganderbal", "Beerwah", "Chadoora"],
+        "Pulwama": ["Pulwama", "Awantipora", "Tral", "Pampore", "Rajpora"],
+        "Shopian": ["Shopian", "Keller", "Zainapora", "Wachi"]
+    },
     "stations": {
         "Kupwara": {
             "Kupwara": ["Police Station Kupwara"],
