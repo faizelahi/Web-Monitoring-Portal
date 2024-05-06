@@ -71,11 +71,11 @@ document.getElementById("registerForm").addEventListener("submit", function(even
 // Function to generate a unique key
 function generateUniqueKey() {
   // Define the characters allowed in the key
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
   // Define the length range for the key (between 8 to 10 characters)
-  const minLength = 8;
-  const maxLength = 10;
+  const minLength = 10;
+  const maxLength = 12;
 
   // Generate a random length between minLength and maxLength
   const length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;

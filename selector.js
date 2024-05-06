@@ -2,20 +2,16 @@
 const data = {
     "districts": [
         {
-            "name": "Kupwara",
-            "tehsils": ["Kupwara", "Handwara", "Langate", "Tangdar", "Lolab", "Sogam"]
+            "name": "Kupwara"
         },
         {
-            "name": "Pulwama",
-            "tehsils": ["Pulwama", "Awantipora", "Tral", "Pampore", "Rajpora"],
+            "name": "Pulwama"
         },
         {
-            "name": "Shopian",
-            "tehsils":  ["Shopian", "Keller", "Zainapora", "Wachi"]
+            "name": "Shopian"
         },
         {
-            "name": "Srinagar",
-            "tehsils": ["Srinagar", "Badgam", "Ganderbal", "Beerwah", "Chadoora"]
+            "name": "Srinagar"
         }
         // Add more districts here...
     ],
@@ -25,12 +21,13 @@ const data = {
         "Pulwama": ["Pulwama", "Awantipora", "Tral", "Pampore", "Rajpora"],
         "Shopian": ["Shopian", "Keller", "Zainapora", "Wachi"]
     },
+
     "stations": {
         "Kupwara": {
             "Kupwara": ["Police Station Kupwara"],
-            "Handwara": ["Police Station Handwara"],
-            "Langate": ["Police Station Langate"],
-            "Tangdar": ["Police Station Tangdar"],
+            "Handwara": ["Police Station Handwara","Police Station Mawer","Police Station Zachaldara"],
+            "Langate": ["Police Station Langate","Police Station Rafiaabad"],
+            "Tangdar": ["Police Station Tangdar", "Police Station Keran"],
             "Lolab": ["Police Station Lolab"],
             "Sogam": ["Police Station Sogam"]
         },
