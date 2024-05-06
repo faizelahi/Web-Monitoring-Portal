@@ -18,6 +18,10 @@
     <input type="text" id="uniqueKey" required><br>
     <button type="submit">Login</button>
   </form>
+   <!-- Login button -->
+   <div class="register">
+    <button id="registerButton">Login</button>
+    </div>
 
   <!-- Include Firebase JavaScript SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -29,5 +33,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
  
   <script src="login.js"></script>
+   <!-- to add register button here and refer to register html  -->
+   <script>
+    // login buton click event
+      document.getElementById("registerButton").addEventListener("click", () => {
+          // Redirect the user to the login page
+          window.location.href = "register.html";
+      });
+  </script>
+
+
 </body>
 </html>
