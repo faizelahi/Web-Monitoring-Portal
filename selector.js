@@ -7,11 +7,11 @@ const data = {
         },
         {
             "name": "Pulwama",
-            "tehsils": ["Pulwama", "Awantipora", "Tral", "Pampore", "Rajpora"]
+            "tehsils": 
         },
         {
             "name": "Shopian",
-            "tehsils": ["Shopian", "Keller", "Zainapora", "Wachi"]
+            "tehsils": 
         },
         {
             "name": "Srinagar",
@@ -21,8 +21,9 @@ const data = {
     ],
     "tehsils": {
         "Kupwara": ["Kupwara", "Handwara", "Langate", "Tangdar", "Lolab", "Sogam"],
-        "Srinagar": ["Srinagar", "Badgam", "Ganderbal", "Beerwah", "Chadoora"]
-        // Add more tehsils here...
+        "Srinagar": ["Srinagar", "Badgam", "Ganderbal", "Beerwah", "Chadoora"],
+        "Pulwama": ["Pulwama", "Awantipora", "Tral", "Pampore", "Rajpora"],
+        "Shopian": ["Shopian", "Keller", "Zainapora", "Wachi"]
     },
     "stations": {
         "Kupwara": {
