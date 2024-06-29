@@ -15,17 +15,17 @@
                 // Reference to the Firebase Realtime Database
                 const db = firebase.database();
         
-                // Function to fetch all reports
                 function fetchAllReports() {
-                    const reportsRef = db.ref("incidents");
-                    reportsRef.once("value", (snapshot) => {
-                        const reports = snapshot.val();
-                        displayReports(reports);
-                    })
-                    .catch((error) => {
-                        console.error("Error fetching reports:", error);
-                    });
-                }
+                  const reportsRef = db.ref("incidents/user_complaints");
+                  reportsRef.once("value", (snapshot) => {
+                      const reports = snapshot.val();
+                      displayReports(reports);
+                  })
+                  .catch((error) => {
+                      console.error("Error fetching reports:", error);
+                  });
+              }
+              
         
                 // Function to display reports in the table
                 function displayReports(reports) {
